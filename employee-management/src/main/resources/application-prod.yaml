@@ -1,7 +1,7 @@
 # production profile
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/employee_management
+    url: jdbc:postgresql://localhost:5432/employee_management?stringtype=unspecified
     username: postgres
     password: postgres
     driver-class-name: org.postgresql.Driver
