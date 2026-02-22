@@ -1,6 +1,9 @@
 package dev.am.em;
 
+import dev.am.em.common.enums.TaskStatus;
 import dev.am.em.employees.domain.*;
+import dev.am.em.tasks.domain.TaskEntity;
+import dev.am.em.tasks.domain.TaskRepository;
 import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
@@ -15,6 +18,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
+import java.time.LocalDate;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Optional;
@@ -86,9 +90,9 @@ public class EmployeeManagementApplication {
 
 	@Bean
 	@Transactional
-	CommandLineRunner commandLineRunner() {
+	CommandLineRunner commandLineRunner(TaskRepository taskRepository) {
 		return args -> {
-			log.info("welcome to commandLineRunner");
+			log.info("welcome to CommandLineRunner");
 		};
 	}
 }

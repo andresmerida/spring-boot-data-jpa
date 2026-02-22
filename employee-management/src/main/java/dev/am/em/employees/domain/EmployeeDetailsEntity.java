@@ -43,4 +43,18 @@ public class EmployeeDetailsEntity {
     private EmployeeEntity employee;
 
     public EmployeeDetailsEntity() {}
+
+    @Override
+    public String toString() {
+        return "EmployeeDetailsEntity{" +
+                "id=" + id +
+                ", socialSecurityNumber='" + socialSecurityNumber + '\'' +
+                ", bankAccountNumber='" + bankAccountNumber + '\'' +
+                ", birthDate=" + birthDate +
+                ", hireDate=" + hireDate +
+                ", salary=" + salary +
+                ", createdAt=" + createdAt +
+                ", updatedAt=" + updatedAt +
+                '}';
+    }
 }

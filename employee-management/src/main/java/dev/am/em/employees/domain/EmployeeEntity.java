@@ -1,10 +1,13 @@
 package dev.am.em.employees.domain;
 
+import dev.am.em.tasks.domain.TaskEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 @Table(name = "employee")
@@ -33,6 +36,9 @@ public class EmployeeEntity {
     @PrimaryKeyJoinColumn   // Joins using the primary key
     private EmployeeDetailsEntity employeeDetails;
 
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    private Set<TaskEntity> tasks = new HashSet<>();
+
     public EmployeeEntity() {}
 
     public EmployeeEntity(String firstName, String lastName, String email) {
@@ -51,5 +57,16 @@ public class EmployeeEntity {
     @Override
     public int hashCode() {
         return Objects.hashCode(id);
+    }
+
+    @Override
+    public String toString() {
+        return "EmployeeEntity{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                ", employeeDetails=" + employeeDetails +
+                '}';
     }
 }
