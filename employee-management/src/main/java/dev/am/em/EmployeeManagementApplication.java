@@ -1,13 +1,17 @@
 package dev.am.em;
 
+import dev.am.em.employees.domain.*;
 import io.micrometer.common.util.StringUtils;
 import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.slf4j.MarkerFactory;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.core.env.Environment;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -78,5 +82,13 @@ public class EmployeeManagementApplication {
 					"You have misconfigured your application! It should not run " + "with both the 'dev' and 'prod' profiles at the same time."
 			);
 		}
+	}
+
+	@Bean
+	@Transactional
+	CommandLineRunner commandLineRunner() {
+		return args -> {
+			log.info("welcome to commandLineRunner");
+		};
 	}
 }
