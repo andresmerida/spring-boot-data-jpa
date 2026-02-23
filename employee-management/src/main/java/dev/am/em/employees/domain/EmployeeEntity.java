@@ -1,5 +1,6 @@
 package dev.am.em.employees.domain;
 
+import dev.am.em.projects.domain.EmployeeProjectEntity;
 import dev.am.em.tasks.domain.TaskEntity;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -38,6 +39,9 @@ public class EmployeeEntity {
 
     @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
     private Set<TaskEntity> tasks = new HashSet<>();
+
+    @OneToMany(mappedBy = "employee", fetch = FetchType.LAZY)
+    private Set<EmployeeProjectEntity> projects = new HashSet<>();
 
     public EmployeeEntity() {}
 
