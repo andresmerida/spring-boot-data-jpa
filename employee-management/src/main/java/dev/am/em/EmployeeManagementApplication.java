@@ -88,7 +88,7 @@ public class EmployeeManagementApplication {
 	@Transactional
 	CommandLineRunner commandLineRunner() {
 		return args -> {
-			log.info("welcome to commandLineRunner");
+			log.info("welcome to CommandLineRunner");
 		};
 	}
 }
