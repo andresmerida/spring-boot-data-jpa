@@ -25,7 +25,7 @@ public class TaskEntity {
 
     private String description;
 
-    @Column(nullable = false)
+    @Column(nullable = false, columnDefinition = "task_status")
     @Enumerated(EnumType.STRING)
     private TaskStatus status;
 
